@@ -4,13 +4,13 @@ const twilio = require("twilio");
 const openai = require("openai");
 const dotenv = require("dotenv");
 
-// Load environment variables from .env file
+
 dotenv.config();
 
 const app = express();
 const port = process.env.PORT || 3000;
 
-// Twilio setup
+
 const twilioClient = twilio(
   process.env.TWILIO_ACCOUNT_SID,
   process.env.TWILIO_AUTH_TOKEN
@@ -55,5 +55,6 @@ app.post("/whatsapp/messages", async (req, res) => {
 
 // Start the server
 app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
   console.log(`Server is running on port ${port}`);
 });
